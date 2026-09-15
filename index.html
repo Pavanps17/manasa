@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Manasa ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Georgia, "Times New Roman", serif;
+            background: #090014;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* ---------- WELCOME SCREEN ---------- */
+
+        #welcome {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 25px;
+            background: radial-gradient(circle at 50% 30%, #4a174d 0%, #19001f 40%, #090014 80%);
+            transition: opacity 1s ease, visibility 1s ease;
+        }
+
+        #welcome.hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .welcome-content {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .small-title {
+            font-size: 14px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #ffb6d9;
+            margin-bottom: 25px;
+        }
+
+        .welcome-heart {
+            font-size: 80px;
+            animation: heartbeat 1.5s infinite;
+            margin-bottom: 20px;
+        }
+
+        .welcome-title {
+            font-size: 45px;
+            color: #fff;
+            margin-bottom: 10px;
+            text-shadow: 0 0 25px rgba(255, 105, 180, 0.8);
+        }
+
+        .welcome-text {
+            color: #e9cfe2;
+            font-size: 17px;
+            line-height: 1.7;
+            margin-bottom: 35px;
+        }
+
+        .open-button {
+            border: 1px solid rgba(255,255,255,0.4);
+            background: linear-gradient(135deg, #ff4f91, #b51669);
+            color: white;
+            padding: 16px 35px;
+            border-radius: 50px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(255, 50, 130, 0.35);
+            transition: 0.3s;
+        }
+
+        .open-button:active {
+            transform: scale(0.94);
+        }
+
+        /* ---------- MAIN PAGE ---------- */
+
+        .page {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at 20% 10%, rgba(255, 62, 140, 0.18), transparent 30%),
+                radial-gradient(circle at 80% 40%, rgba(159, 61, 255, 0.18), transparent 30%),
+                #090014;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 25px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* ENLARGED & BEAUTIFIED HERO AVATAR */
+        .hero-avatar {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #ff79ad;
+            box-shadow: 0 0 35px rgba(255, 121, 173, 0.8), 0 0 70px rgba(255, 79, 145, 0.4);
+            margin-bottom: 25px;
+            transition: transform 0.4s ease;
+        }
+
+        .hero-avatar:hover {
+            transform: scale(1.05);
+        }
+
+        .hero-label {
+            color: #ff9bc5;
+            letter-spacing: 5px;
+            font-size: 13px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(55px, 17vw, 100px);
+            line-height: 0.95;
+            font-weight: normal;
+            background: linear-gradient(135deg, #fff, #ff9fca, #ff4f91);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            color: #e6cfe1;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .scroll-text {
+            position: absolute;
+            bottom: 25px;
+            left: 0;
+            right: 0;
+            color: #a987a2;
+            font-size: 13px;
+            animation: bounce 2s infinite;
+        }
+
+        /* ---------- SECTIONS ---------- */
+
+        section {
+            padding: 80px 22px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .section-label {
+            text-align: center;
+            color: #ff79ad;
+            letter-spacing: 3px;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 35px;
+            font-weight: normal;
+            margin-bottom: 35px;
+        }
+
+        /* ---------- LETTER ---------- */
+
+        .letter {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255, 148, 195, 0.2);
+            border-radius: 25px;
+            padding: 35px 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .letter-top {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        /* ENLARGED LETTER PHOTO */
+        .letter-photo {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #ff9bc5;
+            box-shadow: 0 0 25px rgba(255, 155, 197, 0.5);
+        }
+
+        .letter p {
+            color: #eadce7;
+            line-height: 2;
+            font-size: 17px;
+            margin-bottom: 20px;
+        }
+
+        .signature {
+            color: #ff9bc5 !important;
+            text-align: right;
+            font-style: italic;
+            margin-top: 30px;
+        }
+
+        /* ---------- REASONS ---------- */
+
+        .reasons {
+            display: grid;
+            gap: 15px;
+        }
+
+        .reason {
+            background: linear-gradient(135deg, rgba(255, 90, 150, 0.12), rgba(130, 50, 180, 0.08));
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 22px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .reason-icon {
+            font-size: 30px;
+            min-width: 40px;
+        }
+
+        .reason h3 {
+            font-size: 17px;
+            margin-bottom: 5px;
+            color: #ffd2e5;
+        }
+
+        .reason p {
+            color: #bda9ba;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* ---------- BEAUTIFIED & ENLARGED MEMORY CARDS ---------- */
+
+        .memories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .memory {
+            height: 380px;
+            border-radius: 25px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(to top, rgba(9, 0, 20, 0.95) 15%, rgba(9, 0, 20, 0.2) 60%, transparent 100%);
+            border: 1px solid rgba(255, 121, 173, 0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .memory:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(255, 79, 145, 0.3);
+        }
+
+        .memory-bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            filter: brightness(0.8);
+            transition: transform 0.6s ease;
+        }
+
+        .memory:hover .memory-bg {
+            transform: scale(1.08);
+            filter: brightness(0.9);
+        }
+
+        .memory span {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .memory h3 {
+            font-size: 22px;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.9);
+        }
+
+        .memory p {
+            color: #f3e6f1;
+            font-size: 15px;
+            line-height: 1.5;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.9);
+        }
+
+        /* ---------- FINAL SURPRISE ---------- */
+
+        .final {
+            min-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .final-box {
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .final-heart {
+            font-size: 75px;
+            animation: heartbeat 1.3s infinite;
+            margin-bottom: 20px;
+        }
+
+        .final h2 {
+            font-size: 42px;
+            font-weight: normal;
+            margin-bottom: 20px;
+        }
+
+        .final p {
+            color: #dfcad9;
+            font-size: 18px;
+            line-height: 1.9;
+            margin-bottom: 30px;
+        }
+
+        .surprise-button {
+            padding: 16px 30px;
+            border-radius: 50px;
+            border: 1px solid #ff83b5;
+            background: transparent;
+            color: #ffafd0;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .surprise-button:active {
+            transform: scale(0.95);
+        }
+
+        #finalMessage {
+            display: none;
+            margin-top: 35px;
+            animation: appear 1s ease;
+        }
+
+        #finalMessage h3 {
+            font-size: 32px;
+            color: #ff9bc5;
+            margin-bottom: 15px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px 20px 50px;
+            color: #735e6f;
+            font-size: 12px;
+        }
+
+        /* ---------- FLOATING HEARTS ---------- */
+
+        .floating-hearts span {
+            position: fixed;
+            bottom: -30px;
+            font-size: 20px;
+            opacity: 0;
+            pointer-events: none;
+            animation: floatHeart 8s linear infinite;
+            z-index: 1;
+        }
+
+        .floating-hearts span:nth-child(1) { left: 8%; animation-delay: 0s; }
+        .floating-hearts span:nth-child(2) { left: 25%; animation-delay: 2s; }
+        .floating-hearts span:nth-child(3) { left: 45%; animation-delay: 4s; }
+        .floating-hearts span:nth-child(4) { left: 65%; animation-delay: 1s; }
+        .floating-hearts span:nth-child(5) { left: 85%; animation-delay: 3s; }
+
+        /* ---------- ANIMATIONS ---------- */
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.18); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(8px); }
+        }
+
+        @keyframes floatHeart {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            15% { opacity: 0.8; }
+            100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+        }
+
+        @keyframes appear {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 480px) {
+            .hero-avatar { width: 170px; height: 170px; }
+            .letter-photo { width: 130px; height: 130px; }
+            .welcome-title { font-size: 38px; }
+            .hero h1 { font-size: 65px; }
+            .section-title { font-size: 30px; }
+            .letter { padding: 25px 20px; }
+            .memory { height: 320px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="welcome">
+        <div class="welcome-content">
+            <div class="small-title">A little surprise</div>
+            <div class="welcome-heart">❤️</div>
+            <h1 class="welcome-title">Manasa</h1>
+            <p class="welcome-text">Someone made this little corner of the internet especially for you... 💕</p>
+            <button class="open-button" onclick="openWebsite()">Open My Heart 💌</button>
+        </div>
+    </div>
+
+    <div class="floating-hearts">
+        <span>❤️</span>
+        <span>💗</span>
+        <span>💕</span>
+        <span>💖</span>
+        <span>💞</span>
+    </div>
+
+    <main class="page">
+
+        <!-- HERO SECTION -->
+        <div class="hero">
+            <div class="hero-content">
+                <img src="pic1.jpg" alt="Pavan & Manasa" class="hero-avatar">
+                <div class="hero-label">This is for you</div>
+                <h1>Manasa</h1>
+                <p>In a world full of people, somehow my heart found you. ❤️</p>
+            </div>
+            <div class="scroll-text">↓ Keep scrolling, there's more</div>
+        </div>
+
+        <!-- LETTER SECTION -->
+        <section>
+            <div class="section-label">From my heart</div>
+            <h2 class="section-title">A Little Letter 💌</h2>
+            <div class="letter">
+                <div class="letter-top">
+                    <img src="pic2.jpg" alt="Manasa" class="letter-photo">
+                </div>
+                <p>Dear Manasa,</p>
+                <p>I don't know if a webpage can explain everything I feel, but I wanted to try.</p>
+                <p>You have become someone incredibly special to me. Your smile, your presence, your little habits and the way you make ordinary moments feel special mean more to me than you know.</p>
+                <p>I may not always have the perfect words, but one thing I know for sure... I'm really happy that you are a part of my life.</p>
+                <p>And if I could choose the person to make more beautiful memories with, I would choose you. ❤️</p>
+                <p class="signature">With all my heart,<br>Pavan ❤️</p>
+            </div>
+        </section>
+
+        <!-- REASONS SECTION -->
+        <section>
+            <div class="section-label">Just because</div>
+            <h2 class="section-title">Why You're Special 💗</h2>
+            <div class="reasons">
+                <div class="reason">
+                    <div class="reason-icon">😊</div>
+                    <div>
+                        <h3>Your Smile</h3>
+                        <p>Somehow it can make a bad day feel a little better.</p>
+                    </div>
+                </div>
+                <div class="reason">
+                    <div class="reason-icon">🫶</div>
+                    <div>
+                        <h3>Your Presence</h3>
+                        <p>Even simple moments feel different when you're around.</p>
+                    </div>
+                </div>
+                <div class="reason">
+                    <div class="reason-icon">✨</div>
+                    <div>
+                        <h3>The Little Things</h3>
+                        <p>It's all the small things about you that make you, you.</p>
+                    </div>
+                </div>
+                <div class="reason">
+                    <div class="reason-icon">❤️</div>
+                    <div>
+                        <h3>Simply You</h3>
+                        <p>I don't need a big reason. You're special because you're you.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BEAUTIFIED MEMORIES GALLERY USING ALL 4 PHOTOS -->
+        <section>
+            <div class="section-label">Our little world</div>
+            <h2 class="section-title">Little Memories 🌹</h2>
+            <div class="memories">
+                <div class="memory">
+                    <img src="pic1.jpg" class="memory-bg" alt="Memory photo 1">
+                    <span>🌸</span>
+                    <h3>The Beginning</h3>
+                    <p>Every beautiful story has a beginning. I'm glad ours started.</p>
+                </div>
+
+                <div class="memory">
+                    <img src="pic2.jpg" class="memory-bg" alt="Memory photo 2">
+                    <span>✨</span>
+                    <h3>Your Beautiful Smile</h3>
+                    <p>The simplest moments are always the sweetest with you.</p>
+                </div>
+
+                <div class="memory">
+                    <img src="pic3.jpg" class="memory-bg" alt="Memory photo 3">
+                    <span>🌙</span>
+                    <h3>The Little Moments</h3>
+                    <p>Sometimes the smallest moments become the memories we remember most.</p>
+                </div>
+
+                <div class="memory">
+                    <img src="pic4.jpg" class="memory-bg" alt="Memory photo 4">
+                    <span>💫</span>
+                    <h3>More To Come</h3>
+                    <p>This isn't the end of our story. There are still so many memories to make.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FINAL SURPRISE -->
+        <section class="final">
+            <div class="final-box">
+                <div class="final-heart">❤️</div>
+                <div class="section-label">One last thing</div>
+                <h2>I Have Something To Say...</h2>
+                <p>If I had to choose one person to keep making memories with, I'd choose you again and again.</p>
+                <button class="surprise-button" onclick="showFinalMessage()">Tap For One Last Surprise 💗</button>
+
+                <div id="finalMessage">
+                    <h3>Manasa ❤️</h3>
+                    <p>You are one of the most beautiful chapters of my life.<br><br>
+                    Whatever tomorrow brings, I'm grateful for today... because today has you in it.<br><br>
+                    <strong>I Love You ❤️</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <div class="footer">
+            Made with ❤️ by Pavan
+        </div>
+    </main>
+
+    <script>
+        function openWebsite() {
+            const welcome = document.getElementById("welcome");
+            welcome.classList.add("hide");
+            setTimeout(function() {
+                document.body.style.overflowY = "auto";
+            }, 1000);
+        }
+
+        function showFinalMessage() {
+            const finalMessage = document.getElementById("finalMessage");
+            finalMessage.style.display = "block";
+            createHearts();
+        }
+
+        function createHearts() {
+            for (let i = 0; i < 25; i++) {
+                const heart = document.createElement("div");
+                heart.innerHTML = ["❤️", "💗", "💕", "💖", "✨"][Math.floor(Math.random() * 5)];
+                heart.style.position = "fixed";
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.bottom = "-30px";
+                heart.style.fontSize = (15 + Math.random() * 25) + "px";
+                heart.style.zIndex = "2000";
+                heart.style.pointerEvents = "none";
+                document.body.appendChild(heart);
+
+                const duration = 3 + Math.random() * 3;
+                heart.animate([
+                    { transform: "translateY(0) rotate(0deg)", opacity: 1 },
+                    { transform: "translateY(-110vh) rotate(360deg)", opacity: 0 }
+                ], {
+                    duration: duration * 1000,
+                    easing: "linear"
+                });
+
+                setTimeout(function() {
+                    heart.remove();
+                }, duration * 1000);
+            }
+        }
+    </script>
+</body>
+</html>
